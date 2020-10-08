@@ -1,3 +1,8 @@
+const Theme = {
+  LIGHT: 'light-theme',
+  DARK: 'dark-theme',
+};
+
 const refs = {
   button: document.querySelector('#theme-switch-toggle'),
   body: document.querySelector('body'),
@@ -10,21 +15,21 @@ savedTheme();
 refs.button.addEventListener('change', handleSwitchTheme);
 
 function handleSwitchTheme() {
-  if (bodyClass.contains('light-theme')) {
-    bodyClass.replace('light-theme', 'dark-theme');
-    localStorage.setItem('theme', 'dark-theme');
+  if (bodyClass.contains(Theme.LIGHT)) {
+    bodyClass.replace(Theme.LIGHT, Theme.DARK);
+    localStorage.setItem('theme', Theme.DARK);
     return;
   }
-  bodyClass.replace('dark-theme', 'light-theme');
-  localStorage.setItem('theme', 'light-theme');
+  bodyClass.replace(Theme.DARK, Theme.LIGHT);
+  localStorage.setItem('theme', Theme.LIGHT);
 }
 
 function savedTheme() {
-  if (localStorage.theme === 'dark-theme') {
+  if (localStorage.theme === Theme.DARK) {
     button.checked = true;
-    bodyClass.add('dark-theme');
+    bodyClass.add(Theme.DARK);
     return;
   }
-  bodyClass.add('light-theme');
-  localStorage.setItem('theme', 'light-theme');
+  bodyClass.add(Theme.LIGHT);
+  localStorage.setItem('theme', Theme.LIGHT);
 }
