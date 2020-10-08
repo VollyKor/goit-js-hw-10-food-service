@@ -7,6 +7,7 @@ const refs = {
   button: document.querySelector('#theme-switch-toggle'),
   body: document.querySelector('body'),
 };
+
 const bodyClass = refs.body.classList;
 const button = refs.button;
 
